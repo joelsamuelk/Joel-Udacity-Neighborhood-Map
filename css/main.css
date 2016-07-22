@@ -9,6 +9,8 @@ body {
 h2 {
     padding: 0.83em 20px;
     margin: 0;
+    background: #116090;
+    color: #fff;
 }
 
 ul {
@@ -43,7 +45,9 @@ hr {
 }
 
 #map-canvas { 
-	height: 100% 
+	height: 100%;
+    // width: calc(100% - 280px);
+    // float: right;
 }
 .controls {
     margin: 10px 10px 0;
@@ -70,7 +74,7 @@ hr {
 #list {
     background-color: #02b3e4;
     font-family: Roboto;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 300;
     margin-left: 10px;
     padding: 0px;
