@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <!-- <div class="clearfix"> -->
+    <!-- </div> -->
+    <div id="map-canvas"></div>
     <div class="listcontainer">
         <input id="loc-input" class="controls" type="text" placeholder="Enter a Location">
         <div id="list" class="draggable">
@@ -19,13 +20,11 @@
             <ul data-bind="foreach: filterPlaces">
                 <li data-bind="click: $parent.clickMarker">
                     <p class="name"><span data-bind="text: name"><span></p> 
-                    <p class="address"><span data-bind="text: address"></span></p>
+                <p class="address"><span data-bind="text: address"></span></p>
                 </li>
             </ul>
         </div>
     </div>
-    <!-- </div> -->
-    <div id="map-canvas"></div>
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/lib/jquery.min.js"></script>
     <script async src="js/main.js"></script>

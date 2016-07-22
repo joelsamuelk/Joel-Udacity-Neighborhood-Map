@@ -127,7 +127,7 @@
               var marker = new google.maps.Marker({
                   map: map,
                   zoom: 5,
-                  icon: 'js/mapmarker/MapMarkerIcon.svg',
+                  icon: 'js/mapmarker/MapMarkerIcon.svg', //Custom svg image for Map Marker
                   name: place.name.toLowerCase(),
                   position: place.geometry.location,
                   place_id: place.place_id,
