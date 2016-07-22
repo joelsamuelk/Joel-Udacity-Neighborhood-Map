@@ -52,15 +52,13 @@ var googleSuccess = function() {
         lng = latAndLng.lng(); 
     }
 
-    
-    
     // Loads the map as well as position the bar and list.  On a search, clearOverlays removes all markers already on the map and removes all info in allPlaces.  Then, once a search is complete, populates more markers and sends the info to getAllPlaces to populate allPlaces again.
-    
+   
     function initialize() {
 
       map = new google.maps.Map(document.getElementById('map-canvas'), {
       center: CapeTown,  
-      zoom: 16,
+      zoom: 5,
       });
       getPlaces();
       computeCenter(); 
@@ -96,7 +94,7 @@ var googleSuccess = function() {
     }
 
 
-    /*Display universities in cape town at the start of the App*/
+    // Display universities in cape town at the start of the App
     function getPlaces() {
       var request = {
         location: CapeTown,
@@ -109,7 +107,7 @@ var googleSuccess = function() {
       service.nearbySearch(request, callback);    
     }
 
-    /*Gets the callback from Google and creates a marker for each place.  Sends info to getAllPlaces.*/
+    // Gets the callback from Google and creates a marker for each place.  Sends info to getAllPlaces.
     function callback(results, status){
       if (status == google.maps.places.PlacesServiceStatus.OK){
         bounds = new google.maps.LatLngBounds();
@@ -126,8 +124,7 @@ var googleSuccess = function() {
       }
     } 
 
-    /*Marker creation, use custom svg for marker    */
-   
+    // Marker creation, use custom svg for marker    
     function createMarker(place) {
       var marker = new google.maps.Marker({
         map: map,
@@ -140,7 +137,7 @@ var googleSuccess = function() {
       });    
       var address;
       if (place.vicinity !== undefined) {
-        address = '<b>surrounding:</b>' + place.vicinity;
+        address = '<b>Address:</b>' + place.vicinity;
       } else if (place.formatted_address !== undefined) {
         address = '<b>Address:</b>' + place.formatted_address;
       }       
@@ -195,9 +192,9 @@ var googleSuccess = function() {
         });
     };  
    
-    /*
-    Function that will pan to the position and open an info window of an item clicked in the list.
-    */
+    
+    // Function that will pan to the position and open an info window of an item clicked in the list.
+    
     self.clickMarker = function(place) {
       var marker;
 
@@ -218,10 +215,7 @@ var googleSuccess = function() {
       map.panTo(marker.position);     
     };
 
-
-    /*
-    function that gets the information from all the places that we are going to search and also pre-populate.  Pushes this info to the allPlaces array for knockout.
-    */
+    
     function getAllPlaces(place){
       var myPlace = {};    
       myPlace.place_id = place.place_id;
@@ -271,9 +265,9 @@ var googleSuccess = function() {
     };
 
 
-    /*
-    called after a search, this function clears any markers in the markersArray so that we can start with fresh map with new markers.
-    */
+    
+    // called after a search, this function clears any markers in the markersArray so that we can start with fresh map with new markers.
+    
     function clearOverlays() {
       for (var i = 0; i < markersArray.length; i++ ) {
        markersArray[i].setMap(null);
@@ -289,5 +283,5 @@ var googleSuccess = function() {
 }
 
 var googleError = function(e) { 
-  alert("It seems Google Maps has failed to load (Try checking internet connection and/or script url)"); 
+  alert("Error"); 
 };
