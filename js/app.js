@@ -53,43 +53,10 @@ var googleSuccess = function() {
     }
 
     
-    /*
-    Loads the map as well as position the bar and list.  On a search, clearOverlays removes all markers already on the map and removes all info in allPlaces.  Then, once a search is complete, populates more markers and sends the info to getAllPlaces to populate allPlaces again.
-    */
+    
+    // Loads the map as well as position the bar and list.  On a search, clearOverlays removes all markers already on the map and removes all info in allPlaces.  Then, once a search is complete, populates more markers and sends the info to getAllPlaces to populate allPlaces again.
+    
     function initialize() {
-
-        var applyMapStyles = function () {
-
-    var styleArray = [
-        {
-            featureType: "all",
-            stylers: [
-                {visibility: "off"}
-            ]
-        },
-        {
-            featureType: "road",
-            stylers: [
-                {visibility: "on"}
-            ]
-        },
-        {
-            featureType: "landscape",
-            stylers: [
-                {visibility: "on"}
-            ]
-        },
-        {
-            featureType: "water",
-            stylers: [
-                {visibility: "on"}
-            ]
-        }
-    ];
-    map.setOptions({styles: styleArray});
-};
-
-              applyMapStyles();
 
       map = new google.maps.Map(document.getElementById('map-canvas'), {
       center: CapeTown,  
