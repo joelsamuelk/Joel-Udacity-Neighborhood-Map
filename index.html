@@ -10,10 +10,10 @@
 </head>
 
 <body>
-    <!-- </div> -->
-    <div id="map-canvas"></div>
-    <div class="listcontainer">
-        <input id="loc-input" class="controls" type="text" placeholder="Enter a Location">
+    <div class="" style="background: #02b3e4;">
+        <input id="loc-input" class="controls" type="text" placeholder="Enter a Location not listed below" style="display: none;">
+        <input data-bind="textInput: searchText" class="controls" type="text" placeholder="Search through the list displayed below" />
+
         <div id="list" class="draggable">
             <h2>Cape Town Universities and Colleges</h2>
             <span style="font-weight: 10px; font-weight: bold;text-align: center;padding: 0.83em 20px;">drag the location list if needed!</span>
@@ -25,6 +25,11 @@
             </ul>
         </div>
     </div>
+
+    <!-- </div> -->
+    <div id="map-canvas"></div>
+
+
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/lib/jquery.min.js"></script>
     <script async src="js/main.js"></script>
