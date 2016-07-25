@@ -1,8 +1,3 @@
-  // Make Lisr draggable
-  $(function() {
-      $("#list").draggable();
-  });
-
   var googleSuccess = function() {
       function appViewModel() {
           var self = this,
@@ -177,12 +172,6 @@
                           self.foursquareInfo += 'Phone: ' +
                               phoneNum + '<br>';
                       }
-                      // Twitter
-                      var twitterId = venue.contact.twitter;
-                      if (twitterId !== null && twitterId !== undefined) {
-                          self.foursquareInfo += 'twitter: @' +
-                              twitterId + '<br>';
-                      }
                   })
                   // Fail message for Foursquare API
                   .fail(function(error) {
@@ -259,7 +248,6 @@
           };
 
           // called after a search, this function clears any markers in the markersArray so that we can start with fresh map with new markers.
-
           function clearOverlays() {
               for (var i = 0; i < markersArray.length; i++) {
                   markersArray[i].setMap(null);
@@ -273,3 +261,8 @@
           ko.applyBindings(new appViewModel());
       });
   }
+
+  // Make List draggable
+  $(function() {
+      $("#list").draggable();
+  });
