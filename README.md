@@ -1,7 +1,10 @@
 # Joel-Udacity-Neighborhood-Map
 
+## Overview 
+This application is single page application featuring a map of my neighborhood Cape Town and all the universities and colleges around.
+
 ## Download
-Use github link https://github.com/joelsamuelk to download or clone the repository.
+Use github link (https://github.com/joelsamuelk/Joel-Udacity-Neighborhood-Map) to download or clone the repository.
 
 ## Instalation 
 Run the index.html file found in the directory 
@@ -15,7 +18,7 @@ The Google Map API has been issued using my work responsive email: joel@responsi
 To accomplish this project, you must start by defining your initial coordinates which loads the map and finds all the locations within the 100.000 radius.
 In my case, I have used my beautiful City Cape Town and managed to load all universities and college around the city with the coordinates below            
 
- // Cape Town Coordinates to load map
+ //Cape Town Coordinates to load map
  CapeTown = new google.maps.LatLng(-33.9248685, 18.4240553),
 
 The Map uses a custom loading gif before all locations have been displayed and also it uses svg marker and a cusytom style to match my choosen map theme using the color #02b3e4
