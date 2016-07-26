@@ -31,7 +31,7 @@ li p {
 }
 
 p.name {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -42,6 +42,18 @@ li:hover {
 hr {
     margin: 0;    
     padding: 0;
+}
+
+.loading{
+    background:url('img/gears.gif');
+        position: absolute;
+    z-index: 99;
+    top: 50%;
+    width: 120px;
+    height: 120px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 #map-canvas { 
@@ -64,6 +76,10 @@ hr {
     text-indent: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     top: 60px;
+}
+
+.controls::-webkit-input-placeholder, .controls::-moz-placeholder {
+    font-size: 14px;
 }
 .gm-style-iw .content {
     max-width: 160px !important;
