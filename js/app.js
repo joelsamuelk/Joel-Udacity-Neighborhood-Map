@@ -309,7 +309,8 @@
              ko.applyBindings(new appViewModel());
          });
      }
-     // Make List draggable
+
+ // Make List draggable
  $(function() {
      $("#list").draggable();
  });
