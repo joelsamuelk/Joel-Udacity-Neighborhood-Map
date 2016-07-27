@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Neighborhood Map</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet">
     <link rel="icon" href="favicon.png">
 </head>
 
@@ -15,15 +15,14 @@
     </div>
 
     <div class="" style="background: #02b3e4;">
-        <input id="loc-input" class="controls" type="text" placeholder="Enter a Location not listed below" style="display: none;">
-        <input data-bind="textInput: searchText" class="controls" type="text" placeholder="Search through the list displayed below" />
+        <input data-bind="textInput: searchText" class="controls" type="text" placeholder="Search" />
 
         <div id="list" class="draggable">
             <h2>Cape Town Universities and Colleges</h2>
             <span style="font-weight: 10px; font-weight: bold;text-align: center;padding: 0.83em 20px;">drag the location list if needed!</span>
             <ul data-bind="foreach: filterPlaces">
                 <li data-bind="click: $parent.clickMarker">
-                    <p class="name"><span data-bind="text: name"><span></p> 
+                    <p class="name"><span data-bind="text: name"></span></p> 
                 <p class="address"><span data-bind="text: address"></span></p>
                 </li>
             </ul>

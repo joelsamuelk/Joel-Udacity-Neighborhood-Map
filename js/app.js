@@ -76,8 +76,8 @@
                  }];
 
                  map = new google.maps.Map(document.getElementById('map-canvas'), {
-                    // Cape Town coordinates to load the map when the app starts
-                     center: CapeTown, 
+                     // Cape Town coordinates to load the map when the app starts
+                     center: CapeTown,
                      // Styles for the map
                      styles: styleArray,
                  });
@@ -117,12 +117,13 @@
                  });
              }
 
-             // Function to pre-populate the map with place types.  nearbySearch retuns up to 20 places.        
+             // Function to pre-populate the map with place types. 
+             //  nearbySearch retuns up to 20 places.        
              function getPlaces() {
                  var request = {
-                    // Cape Town coordinates  
+                     // Cape Town coordinates  
                      location: CapeTown,
-                    // Radius definition to find all locations
+                     // Radius definition to find all locations
                      radius: 100000,
                      //Type of locations to load in the map
                      types: ['university']
@@ -133,7 +134,8 @@
                  service.nearbySearch(request, callback);
              }
 
-             // Gets the callback from Google and creates a marker for each place.  Sends info to getAllPlaces.
+             // Gets the callback from Google and creates a marker for each place.
+             //   Sends info to getAllPlaces.
              function callback(results, status) {
                  if (status == google.maps.places.PlacesServiceStatus.OK) {
                      bounds = new google.maps.LatLngBounds();
@@ -146,12 +148,14 @@
                      map.fitBounds(bounds);
                      results.forEach(getAllPlaces);
                  } else {
-                    // Error message when API 
+                     // Error message when API 
                      alert('Places API request fails');
                  }
              }
 
-             // Function to create a marker at each place.  This is called on load of the map with the pre-populated list, and also after each search.  Also sets the content of each place's infowindow.
+             // Function to create a marker at each place.  
+             // This is called on load of the map with the pre-populated list, and also after each search.
+             //   Also sets the content of each place's infowindow.
              function createMarker(place) {
                  var marker = new google.maps.Marker({
                      map: map,
@@ -165,8 +169,7 @@
                  var address;
                  if (place.formatted_address !== undefined) {
                      address = '<b>Address:</b>' + place.formatted_address;
-                 } 
-                 else if (place.vicinity !== undefined) {
+                 } else if (place.vicinity !== undefined) {
                      address = '<b>Vicinity:</b>' + place.vicinity;
                  }
                  var contentString = '<div class="content"><div style="font-weight: bold">' + place.name + '</div><div>' + address + '</div></div>' + self.foursquareInfo;
@@ -194,18 +197,22 @@
                      .done(function(response) {
                          self.foursquareInfo = '<p><span style="font-size:16px; font-weight: bold">Details:</span><br>';
 
-                         var venue = response.response.venues[0];
-                         // Name       
-                         var venueName = venue.name;
+                            var venue = response.response.venues[0];
 
-                         if (venueName !== null && venueName !== undefined) {
-                             self.foursquareInfo += 'Name: ' +
-                                 venueName + '<br>';
-                         }
+                            if (venue) {
+                              // Location Name       
+                              var venueName = venue.name;
+
+                              if (venueName !== null && venueName !== undefined) {
+                                self.foursquareInfo += 'Name: ' +  venueName + '<br>';
+                              } 
+                            }else {
+                              self.foursquareInfo += 'No Foursquare Data available';
+                            }
                      })
                      // Foursquare API Error message
                      .fail(function(error) {
-                         alert(error);
+                        alert("Foursquare API has failed, error details:" + error);
                      });
              };
 
@@ -228,7 +235,8 @@
                  map.panTo(marker.position);
              };
 
-             // function that gets the information from all the places that we are going to search and also pre-populate.  Pushes this info to the allPlaces array for knockout.
+             // function that gets the information from all the places that we are going to search and also pre-populate.  
+             // Pushes this info to the allPlaces array for knockout.
              function getAllPlaces(place) {
                  var placeit = {};
                  placeit.place_id = place.place_id;
@@ -264,7 +272,8 @@
                          result.loaded(true);
                          _value(newValue);
                      },
-                     // deferEvaluation: true //do not evaluate immediately when created
+                     // deferEvaluation: true 
+                     // //do not evaluate immediately when created
                  });
 
                  //expose the current state, which can be bound against
@@ -291,6 +300,11 @@
 
              google.maps.event.addDomListener(window, 'load', initialize);
          }
+
+         function googleError() {
+             alert("Google Maps did not load");
+         }
+
          $(function() {
              ko.applyBindings(new appViewModel());
          });

@@ -3,7 +3,9 @@ html {
 }
 
 body { 
-	height: 100%; margin: 0; padding: 0 
+  height: 100%; 
+  margin: 0; 
+  padding: 0 
 }
 
 h2 {
@@ -58,8 +60,6 @@ hr {
 
 #map-canvas { 
 	height: 100%;
-    // width: calc(100% - 280px);
-    // float: right;
 }
 .controls {
     margin: 15px 10px;

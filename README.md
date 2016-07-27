@@ -9,7 +9,13 @@ Use github link (https://github.com/joelsamuelk/Joel-Udacity-Neighborhood-Map) t
 ## Instalation 
 Run the index.html file found in the directory 
 
-## Map 
+## Map Details 
+- The user can search for a univeristy or college with the 100.000 radius of Cape Town, South Africa.
+- The Suggested list will be updated based on the search inout content and the markers will update based on the value search with the corresponding information on the map.
+- The view the location details, Click on the marker on the map or click on the location on the suggested list. 
+- The information displayed will have the Foursquare API information (The location name).
+
+## Map Technical Details 
 The Map is built using the Google Map API (http://maps.googleapis.com/maps/api/js?key=AIzaSyDSCcy2htnsbh9edXydftA1ESGTP-ZU2Zo&libraries=places&callback=googleSuccess) 
 and pulls through the foursqure API (https://api.foursquare.com/v2/venues/search?client_id=VGW53IWWPVNRZBDUNHFW1Z2GQZBHFYIDWOTNA5M2S2AIXFVL&client_secret=URVFRTKS0AWCICYJBGEPFWUHYAU3CTB0SPKCBCVHDB3FG4LL&v=20150321) for all the Map location details displayed 
 
@@ -22,6 +28,7 @@ In my case, I have used my beautiful City Cape Town and managed to load all univ
  CapeTown = new google.maps.LatLng(-33.9248685, 18.4240553),
 
 The Map uses a custom loading gif before all locations have been displayed and also it uses svg marker and a cusytom style to match my choosen map theme using the color #02b3e4
+
 
 ## Contributors
 The Udacity Team and my responsive (goresponsive.com) colleagues
